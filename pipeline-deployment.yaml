@@ -1,0 +1,44 @@
+###
+### A complete description of a Prefect Deployment for flow 'pipeline'
+###
+name: try
+description: null
+version: ea162b8a3c2ee5953a5a0b1b52b15778
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+tags: []
+parameters: {}
+schedule: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: pipeline
+manifest_path: null
+storage: null
+path: /Users/jeffhale/Desktop/prefect/demos/pacc
+entrypoint: weather3-tasks.py:pipeline
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    lat:
+      title: lat
+      type: number
+    lon:
+      title: lon
+      type: number
+  required:
+  - lat
+  - lon
+  definitions: null
