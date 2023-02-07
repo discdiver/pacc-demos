@@ -10,11 +10,12 @@ def fetch_cat_fact():
 @flow
 def fetch_dog_fact():
     return httpx.get(
-        "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/all"
-    ).json()[5]["fact"]
+        "https://dogapi.dog/api/v2/facts",
+        headers={"accept": "application/json"},
+    ).json()["data"][0]["attributes"]["body"]
 
 
-@flow
+@flow(log_prints=True)
 def animal_facts():
     cat_fact = fetch_cat_fact()
     dog_fact = fetch_dog_fact()

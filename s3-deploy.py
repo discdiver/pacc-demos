@@ -2,12 +2,10 @@ from flows import pipe
 from prefect.deployments import Deployment
 from prefect.filesystems import S3
 
-s3 = S3.load("s3-dev")
+s3 = S3.load("myawsblock")
 
 deploy = Deployment.build_from_flow(
-    flow=pipe,
-    name="pandera",
-    storage=s3,
+    flow=pipe, name="k8s-generic", storage=s3, infrastructure="kubernetes-job"
 )
 
 
